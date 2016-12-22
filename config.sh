@@ -9,6 +9,7 @@ DATE_TAG="!DATE!"
 CONTENT_TAG="!CONTENT!"
 USE_DATE_AS_FILENAME=true
 EXPORT_DIR="export" # without "/" at the end
+HOMEPAGE_TEXT="<p>My journal is about...</p>"
 # END of configuration --------------
 
 
@@ -20,5 +21,3 @@ if [ "$TAG" = "work" ] ; then
     USE_DATE_AS_FILENAME=false
 fi
 # END of configuration---------------
-
-

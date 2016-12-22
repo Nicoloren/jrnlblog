@@ -43,7 +43,7 @@ jrnl -and @$TAG --export markdown -o $EXPORT_DIR/$TAG/
 POSTS_LIST="<ul class='postlist'>"
 
 # loop on all markdown files
-for FILE in $EXPORT_DIR/$TAG/*.markdown
+for FILE in `ls $EXPORT_DIR/$TAG/*.markdown | sort`
 do
     echo -e "... ${RED}Processing${NC} $FILE"
     
@@ -92,7 +92,7 @@ POSTS_LIST="$POSTS_LIST</ul>"
 # create index file
 DATE=$(date)
 HTML_FILE="${TEMPLATE//$TITLE_TAG/$BLOG_NAME}"
-HTML_FILE="${HTML_FILE//$CONTENT_TAG/$POSTS_LIST}"
+HTML_FILE="${HTML_FILE//$CONTENT_TAG/$HOMEPAGE_TEXT\ $POSTS_LIST}"
 HTML_FILE="${HTML_FILE//$DATE_TAG/$DATE}"
 echo $HTML_FILE > $EXPORT_DIR/$TAG/$INDEX_FILENAME
 rm -rf $EXPORT_DIR/$TAG/*$MD_EXTENSION
